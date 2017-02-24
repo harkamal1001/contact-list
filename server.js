@@ -1,23 +1,32 @@
+﻿require('rootpath')();
 var express = require('express');
 var app = express();
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var expressJwt = require('express-jwt');
+var config = require('config.json');
 
-// set the port of our application
-// process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
-
-// set the view engine to ejs
 app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(session({ secret: config.secret, resave: false, saveUninitialized: true }));
 
-// make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/public'));
+// use JWT auth to secure the api
+app.use('/api', expressJwt({ secret: config.secret }).unless({ path: ['/api/users/authenticate', '/api/users/register'] }));
 
-// set the home page route
-app.get('/', function(req, res) {
+// routes
+app.use('/login', require('./controllers/login.controller'));
+app.use('/register', require('./controllers/register.controller'));
+app.use('/app', require('./controllers/app.controller'));
+app.use('/api/users', require('./controllers/api/users.controller'));
 
-	// ejs render automatically looks in the views folder
-	res.render('index');
+// make '/app' default route
+app.get('/', function (req, res) {
+    return res.redirect('/app');
 });
 
-app.listen(port, function() {
-	console.log('Our app is running on http://localhost:' + port);
+// start server
+var server = app.listen(3000, function () {
+    console.log('Server listening at http://' + server.address().address + ':' + server.address().port);
 });
