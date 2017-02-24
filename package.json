@@ -23,7 +23,8 @@
     "mongoskin": "^2.1.0",
     "q": "^1.4.1",
     "request": "^2.79.0",
-    "rootpath": "^0.1.2"
+    "rootpath": "^0.1.2",
+    "mime" : "~1.2.7"
   },
   "license": "MIT"
 }
