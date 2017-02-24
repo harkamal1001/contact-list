@@ -19,7 +19,7 @@ app.use('/api', expressJwt({ secret: config.secret }).unless({ path: ['/api/user
 app.use('/login', require('./controllers/login.controller'));
 app.use('/register', require('./controllers/register.controller'));
 app.use('/app', require('./controllers/app.controller'));
-//app.use('/main', require('./controllers/main.controller'));
+app.use('/images', require('./images'));
 app.use('/api/users', require('./controllers/api/users.controller'));
 
 // make '/app' default route
