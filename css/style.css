@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6, a {Padding:0; margin:0; text-decoration:none;}
 {
 	float:left;
 	width:100%;
-	background:url(https://raw.githubusercontent.com/harkamal1001/contact-list/master/views/images/main_bg.jpg) center top no-repeat;;
+	background:url('https://raw.githubusercontent.com/harkamal1001/contact-list/master/views/images/main_bg.jpg')' center top no-repeat;;
 }
 .top_logo_social_icon {
 	margin: 20px 0 0 0;
