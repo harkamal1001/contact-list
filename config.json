@@ -1,5 +1,5 @@
 ﻿{
     "connectionString": "mongodb://hradmin:hradmin@cluster0-shard-00-00-qvxmx.mongodb.net:27017,cluster0-shard-00-01-qvxmx.mongodb.net:27017,cluster0-shard-00-02-qvxmx.mongodb.net:27017/mean-stack-registration-login-example?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin",
-    "apiUrl": "https://har-contact-list.herokuapp.com/api",
+    "apiUrl": "https://whispering-cove-54654.herokuapp.com/api",
     "secret": "REPLACE THIS WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
 }
